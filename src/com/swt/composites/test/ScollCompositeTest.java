@@ -1,4 +1,4 @@
-package com.swt.control.composites.test;
+package com.swt.composites.test;
 
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.ScrolledComposite;

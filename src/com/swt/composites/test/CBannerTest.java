@@ -1,16 +1,14 @@
-package com.swt.control.composites.test;
+package com.swt.composites.test;
 
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.custom.CBanner;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
-import org.eclipse.swt.widgets.Display;
-import org.eclipse.swt.widgets.Group;
-import org.eclipse.swt.widgets.Shell;
-import org.eclipse.swt.custom.SashForm;
-import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.Shell;
 
-public class SashFormTest {
+public class CBannerTest {
 
 	protected Shell shell;
 
@@ -21,7 +19,7 @@ public class SashFormTest {
 	 */
 	public static void main(String[] args) {
 		try {
-			SashFormTest window = new SashFormTest();
+			CBannerTest window = new CBannerTest();
 			window.open();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -52,16 +50,21 @@ public class SashFormTest {
 		shell.setText("SWT Application");
 		shell.setLayout(new GridLayout(1, false));
 
-		Group composite = new Group(shell, SWT.NONE);
-		composite.setLayout(new GridLayout(1, false));
-		composite.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
+		CBanner banner = new CBanner(shell, SWT.NONE);
+		GridData gd_banner = new GridData(SWT.LEFT, SWT.CENTER, false, false, 1, 1);
+		gd_banner.heightHint = 126;
+		gd_banner.widthHint = 332;
+		banner.setLayoutData(gd_banner);
 
-		SashForm sashForm = new SashForm(composite, SWT.NONE);
-		sashForm.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
+		Composite composite = new Composite(banner, SWT.NONE);
+		banner.setLeft(composite);
 
-		Group group = new Group(sashForm, SWT.NONE);
-		Group group_1 = new Group(sashForm, SWT.NONE);
-		sashForm.setWeights(new int[] { 5, 1 });
+		Composite composite_1 = new Composite(banner, SWT.NONE);
+		banner.setRight(composite_1);
+
+		Composite composite_2 = new Composite(banner, SWT.NONE);
+		banner.setBottom(composite_2);
+		banner.setRightWidth(200);
 
 	}
 }

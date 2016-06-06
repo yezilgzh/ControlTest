@@ -1,4 +1,4 @@
-package com.swt.conrol.layout.test;
+package com.swt.layout.test;
 
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.StackLayout;

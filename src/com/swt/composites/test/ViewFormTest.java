@@ -1,4 +1,4 @@
-package com.swt.control.composites.test;
+package com.swt.composites.test;
 
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.swt.SWT;
