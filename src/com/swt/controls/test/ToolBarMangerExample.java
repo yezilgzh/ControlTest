@@ -38,6 +38,11 @@ public class ToolBarMangerExample {
 		fileMenuManager.add(exitAction);
 		menuManager.add(fileMenuManager);
 		menuManager.updateAll(true);
+		MenuManager fileMenuManager1 = new MenuManager("&File1");
+		fileMenuManager1.add(openAction);
+		fileMenuManager1.add(exitAction);
+		menuManager.add(fileMenuManager1);
+		menuManager.updateAll(true);
 
 		shell.setMenuBar(menuManager.createMenuBar((Decorations) shell));
 		shell.addListener(SWT.Resize, new Listener() {

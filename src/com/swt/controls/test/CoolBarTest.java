@@ -11,8 +11,12 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.ToolBar;
 import org.eclipse.swt.widgets.ToolItem;
+import org.eclipse.swt.widgets.CoolBar;
+import org.eclipse.swt.widgets.CoolItem;
+import org.eclipse.swt.widgets.ProgressBar;
+import org.eclipse.swt.custom.CCombo;
 
-public class ToolBarTest {
+public class CoolBarTest {
 
 	protected Shell shell;
 
@@ -23,7 +27,7 @@ public class ToolBarTest {
 	 */
 	public static void main(String[] args) {
 		try {
-			ToolBarTest window = new ToolBarTest();
+			CoolBarTest window = new CoolBarTest();
 			window.open();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -35,7 +39,17 @@ public class ToolBarTest {
 	 */
 	public void open() {
 		Display display = Display.getDefault();
-		createContents();
+		shell = new Shell();
+		shell.setSize(450, 300);
+		shell.setText("SWT Application");
+		shell.setLayout(new GridLayout(1, false));
+		CoolBarExample cbar = new CoolBarExample(shell, SWT.BORDER);
+		
+		ProgressBar progressBar = new ProgressBar(shell, SWT.NONE);
+		progressBar.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1));
+		
+		CCombo combo = new CCombo(shell, SWT.BORDER);
+		combo.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1));
 		shell.open();
 		shell.layout();
 		while (!shell.isDisposed()) {
@@ -53,16 +67,11 @@ public class ToolBarTest {
 		shell.setSize(450, 300);
 		shell.setText("SWT Application");
 		shell.setLayout(new GridLayout(1, false));
-		
-		ToolBar toolBar = new ToolBar(shell, SWT.FLAT | SWT.RIGHT);
-		toolBar.setLayoutData(new GridData(SWT.RIGHT, SWT.CENTER, false, false, 1, 1));
-		
-		ToolItem tltmNewItem = new ToolItem(toolBar, SWT.NONE);
-		tltmNewItem.setText("New Item1");
-		
-		ToolItem tltmNewItem_1 = new ToolItem(toolBar, SWT.NONE);
-		tltmNewItem_1.setText("New Item2");
-		
+
+		CoolBar coolBar = new CoolBar(shell, SWT.FLAT);
+
+		CoolItem coolItem = new CoolItem(coolBar, SWT.NONE);
+
 		Group group = new Group(shell, SWT.NONE);
 		group.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
 
